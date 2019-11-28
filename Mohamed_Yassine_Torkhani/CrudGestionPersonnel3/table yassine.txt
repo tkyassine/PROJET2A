@@ -1,0 +1,2 @@
+CREATE TABLE personnel(cin number primary key not null,nom varchar2(15),prenom varchar2(15),adresse varchar2(50),numtel number,idposte varchar2(10));
+CREATE TABLE personnel_securite(cin number primary key not null,nom varchar2(15),prenom varchar2(15),adresse varchar2(50),numtel number,idposte varchar2(10),age number,statut_familiale varchar2(15));
