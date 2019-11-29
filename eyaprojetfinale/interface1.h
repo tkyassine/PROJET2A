@@ -24,7 +24,6 @@ public:
 private slots:
     void on_pushButton_clicked();
 
-    void on_pushButton_5_clicked();
 
     void on_ajout_clicked();
 
@@ -69,6 +68,8 @@ private slots:
     void on_pushButton_pdf_clicked();
 
     void on_lineEdit_textChanged(const QString &arg1);
+
+    void on_pushButton_5_clicked();
 
 private:
     Ui::interface1 *ui;

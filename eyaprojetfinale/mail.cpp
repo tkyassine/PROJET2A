@@ -17,19 +17,17 @@ Mail::~Mail()
 void Mail::on_pushButton_clicked()
 {
     SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
-
        smtp.setUser("eya.souissi@esprit.tn");
        smtp.setPassword("eyaeyaeya");
        MimeMessage message;
-       message.setSender(new EmailAddress("eya.souissi@esprit.tn", "Your Name"));
-       message.addRecipient(new EmailAddress("omar.elheni@esprit.tn", "Recipient's Name"));
-       message.setSubject("SmtpClient for Qt - Demo");
+       message.setSender(new EmailAddress("eya.souissi@esprit.tn", "Eya"));
+       message.addRecipient(new EmailAddress(ui->lineEdit->text(), "Recipient's Name"));
+       message.setSubject(ui->lineEdit_2->text());
        MimeText text;
-       text.setText("Hi,\nThis is a simple email message.\n");
+       text.setText(ui->label_3->text());
        message.addPart(&text);
        smtp.connectToHost();
        smtp.login();
        smtp.sendMail(message);
        smtp.quit();
-
 }

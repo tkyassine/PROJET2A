@@ -4,7 +4,7 @@
 #include "client.h"
 #include"avis.h"
 #include"interface1.h"
-
+#include "mail.h"
 #include <QDebug>
 
 #include"QMessageBox"
@@ -297,7 +297,7 @@ void interface1::on_pushButton_4_clicked()
  bool test= a.modifier_avis(a);
          if (test)
  {
- QMessageBox::information(nullptr, QObject::tr("modifier un client"),
+ QMessageBox::information(nullptr, QObject::tr("modifier un client"), // afficher
                    QObject::tr(" client modifié .\n"
                                "Click Cancel to exit."), QMessageBox::Cancel);
 
@@ -322,7 +322,6 @@ void interface1::on_pushButton_pdf_clicked()
         printer.setOutputFileName("C:/Users/OMEN/Documents/pdf.pdf");
         QPainter painter;
         painter.begin(&printer);
-
         QFont font;
         QString nom_complet=ui->lineEdit_nom_complet->text();
         QString inscription=ui->lineEdit_inscription->text();
@@ -331,7 +330,6 @@ void interface1::on_pushButton_pdf_clicked()
         painter.setPen(Qt::blue);
         painter.drawText(20,300,"nom complet :");
         painter.drawText(20,500,"inscription :");
-
         font.setPixelSize(22);
         painter.setFont(font);
         painter.setPen(Qt::black);
@@ -342,5 +340,13 @@ void interface1::on_pushButton_pdf_clicked()
 
 void interface1::on_lineEdit_textChanged(const QString &arg1)
 {
-    ui->tableView->setModel(c.recherchernomcient(arg1));
+    ui->tableView->setModel(c.recherchernomcient(arg1));//naabi m tab l je m base de donée te3i
+}
+
+
+
+void interface1::on_pushButton_5_clicked()
+{
+    Mail m ;
+    m.exec();
 }
